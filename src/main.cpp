@@ -1,10 +1,15 @@
 // BUNDLER
 // A framework to easily run, distribute and edit any language
 
-#include "runtime/changeDir.cpp"
+#include <iostream>
+#include "parse.cpp"
 
 int main(int argc, char const *argv[])
 {
-    test();
+    for (int i = 0; i < std::stoi(parseYAML("scriptCount")); i++)
+    {
+        std::cout << parseYAML_Vector("scripts", i) << std::endl;
+    }
+    
     return 0;
 }

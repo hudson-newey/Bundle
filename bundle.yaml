@@ -13,6 +13,7 @@ bundle-version : 1.0
 # application source, runtime and build directory
 runtime : runtime/
 source : src/
+scriptCount: 1
 scripts:
   - "go run main.go"
   - "python3 fileServer.py"
