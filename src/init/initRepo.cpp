@@ -6,7 +6,7 @@
 using namespace std;
 
 // TODO: conert to 3d array
-const char *repoTemplateFiles[4] = { ".gitignore", "README.md", "LICENSE.txt", "test.txt" };
+const char *repoTemplateFiles[4] = { ".gitignore", "README.md", "LICENSE.txt", bundlerFile.c_str() };
 const char *fileContents[4] = { "build/", "# sample project", "please pick a license", "# THIS IS AN EXAMPLE BUNDLE FILE\n"
 "\n"
 "# application information\n"
