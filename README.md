@@ -1,2 +1,2 @@
 # Bundler
-A framework to easily run, distribute and edit any language
+A framework to easily run, distribute and edit your projects

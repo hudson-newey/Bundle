@@ -6,6 +6,8 @@
 #include "run/main.cpp"
 #include "init/main.cpp"
 
+#include "addons/addons.h"
+
 int main(int argc, char const *argv[])
 {
     if (argc == 2) {
@@ -14,6 +16,8 @@ int main(int argc, char const *argv[])
             bundlerRun();
         } else if ((strcmp(argv[1], "init") == 0)) {
             bundlerInit();
+        } else if ((strcmp(argv[1], "commit") == 0)) {
+            gitCommit();
         }
     } else {
         // default is "bundler run"
