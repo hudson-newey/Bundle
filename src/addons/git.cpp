@@ -3,7 +3,7 @@ void gitCommit() {
     std::cout << "(Commit Message) ";
     std::string commitMessage = "";
     std::cin >> commitMessage;
-    commitMessage = "git commit -m '" + commitMessage + "'";
+    commitMessage = "git commit -m \"" + commitMessage + "\"";
 
     // default git commit procedure
     system("git add --all");
