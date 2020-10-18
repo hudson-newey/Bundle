@@ -1,7 +1,7 @@
 // BUNDLER
 // A framework to easily run, distribute and edit any language
 
-#include <iostream>
+#include "bundlerInfo.h"
 #include "process/parse.cpp"
 #include "run/main.cpp"
 #include "init/main.cpp"

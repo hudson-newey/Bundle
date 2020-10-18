@@ -18,6 +18,12 @@ bool fileExists(std::string fileName) {
 bool unitChecks() {
     // check a bundle file exists
     if (!fileExists("bundle.yaml")) {
+        std::cout << "\033[1;31mbundle.yaml Not Found!\033[0m" << std::endl;
+        return false;
+
+    // check bundle version is compatible
+    } else if (parseYAML("bundle-version") > bundlerVersion) {
+        std::cout << "\033[1;31mIncompatible Bundler Version, Please Update...\033[0m" << std::endl;
         return false;
     }
 
@@ -27,9 +33,10 @@ bool unitChecks() {
 void initBundler() {
    bool validBundle = unitChecks();
     if (validBundle) {
-        std::cout << parseYAML("appName") << " v" << parseYAML("version") << "\n\n";
+        // start program and give CLI headers
+        std::cout << "\033[1;33m" << parseYAML("appName") << " v" << parseYAML("version") << "\033[0m" << "\n\n";
     } else {
-        std::cout << "Invalid Bundle File" << std::endl;
+        // bundler had a problem with the given "bundle.yaml" file
         exit(0);
     }
 }
