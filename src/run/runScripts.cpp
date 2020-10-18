@@ -9,5 +9,5 @@ void runScript(std::string command) {
    strcpy(cmd, command.c_str());
 
    std::cout << command << std::endl;
-   system(cmd);
+   // system(cmd); // comment out for debugging
 }

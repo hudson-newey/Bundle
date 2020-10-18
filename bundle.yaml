@@ -3,7 +3,7 @@
 # application information
 appName : application-name
 description : this is a sample program...
-author : Grathium Industries
+author : <author>
 version : 1.0
 license : GNU General Public License 3.0
 
@@ -15,5 +15,5 @@ runtime : runtime/
 source : src/
 scriptCount: 2
 scripts:
-  - "go run main.go"
-  - "python3 fileServer.py"
+  - 'go run main.go'
+  - 'python3 fileServer.py'

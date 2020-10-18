@@ -3,19 +3,22 @@
 
 #include <iostream>
 #include "process/parse.cpp"
-#include "process/findBundle.cpp"
-#include "run/getScripts.cpp"
+#include "run/main.cpp"
+#include "init/main.cpp"
 
 int main(int argc, char const *argv[])
 {
-    bool validBundle = initBundler();
-    if (validBundle) {
-        std::cout << parseYAML("appName") << " v" << parseYAML("version") << std::endl;
+    if (argc == 2) {
+        // get CLI
+        if (strcmp(argv[1], "run") == 0) {
+            bundlerRun();
+        } else if ((strcmp(argv[1], "init") == 0)) {
+            bundlerInit();
+        }
     } else {
-        std::cout << "Invalid Bundle File" << std::endl;
-        exit(0);
+        // default is "bundler run"
+        bundlerRun();
     }
 
-    getScriptsFromBundle();
     return 0;
 }
