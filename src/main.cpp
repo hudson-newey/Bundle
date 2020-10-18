@@ -2,14 +2,20 @@
 // A framework to easily run, distribute and edit any language
 
 #include <iostream>
-#include "parse.cpp"
+#include "process/parse.cpp"
+#include "process/findBundle.cpp"
+#include "run/getScripts.cpp"
 
 int main(int argc, char const *argv[])
 {
-    for (int i = 0; i < std::stoi(parseYAML("scriptCount")); i++)
-    {
-        std::cout << parseYAML_Vector("scripts", i) << std::endl;
+    bool validBundle = initBundler();
+    if (validBundle) {
+        std::cout << parseYAML("appName") << " v" << parseYAML("version") << std::endl;
+    } else {
+        std::cout << "Invalid Bundle File" << std::endl;
+        exit(0);
     }
-    
+
+    getScriptsFromBundle();
     return 0;
 }
