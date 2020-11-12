@@ -6,16 +6,16 @@
 using namespace std;
 
 // TODO: conert to 3d array
-const char *repoTemplateFiles[4] = { ".gitignore", "README.md", "LICENSE", bundlerFile.c_str() };
-const char *fileContents[4] = { "build/", "# sample project", "", "# application information\n"
-"appName : application-name\n"
+const std::string repoTemplateFiles[4] = { ".gitignore", "README.md", "LICENSE", bundlerFile.c_str() };
+const std::string fileContents[4] = { "build/", std::string("# ") + std::string(findDir()), "", "# application information\n"
+"appName : sample-application\n"
 "description : this is a sample program...\n"
 "author : <author>\n"
 "version : 1.0\n"
 "license : GNU General Public License 3.0\n"
 "\n"
 "# bundler info\n"
-"bundle-version : 1.0\n"
+"bundle-version :\n"
 "\n"
 "# application source, runtime and build directory\n"
 "runtime : runtime/\n"
@@ -25,7 +25,7 @@ const char *fileContents[4] = { "build/", "# sample project", "", "# application
 "  - 'go run main.go'\n"
 "  - 'python3 fileServer.py'\n"
 "" };
-const char *dirTemplate[3] = { "src", "build", "tests" };
+const std::string dirTemplate[3] = { "src", "build", "tests" };
 
 void createDir(std::string dirName) {
     std::cout << "Creating Directory: " << dirName << std::endl;
