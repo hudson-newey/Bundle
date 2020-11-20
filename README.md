@@ -6,6 +6,7 @@ A framework to easily run, distribute and edit your projects
 > * bundler (same as bundler run)
 > * bundler init
 > * bundler commit
+> * bundler install
 
 #### bundler run / bundler
 Bundler run will run your projects "scripts", as specified within your bundle.yaml file
