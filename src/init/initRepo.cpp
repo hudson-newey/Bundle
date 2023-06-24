@@ -3,11 +3,9 @@
 #include <sys/types.h>
 #include <fstream>
 
-using namespace std;
-
 // TODO: conert to 3d array
-const std::string repoTemplateFiles[4] = { ".gitignore", "README.md", "LICENSE", bundlerFile.c_str() };
-const std::string fileContents[4] = { "build/", std::string("# ") + std::string(findDir()), "", "# application information\n"
+const string repoTemplateFiles[4] = { ".gitignore", "README.md", "LICENSE", bundlerFile.c_str() };
+const string fileContents[4] = { "build/", string("# ") + string(findDir()), "", "# application information\n"
 "appName : sample-application\n"
 "description : this is a sample program...\n"
 "author : <author>\n"
@@ -25,22 +23,22 @@ const std::string fileContents[4] = { "build/", std::string("# ") + std::string(
 "  - 'go run main.go'\n"
 "  - 'python3 fileServer.py'\n"
 "" };
-const std::string dirTemplate[3] = { "src", "build", "tests" };
+const string dirTemplate[3] = { "src", "build", "tests" };
 
-void createDir(std::string dirName) {
-    std::cout << "Creating Directory: " << dirName << std::endl;
+void createDir(string dirName) {
+    cout << "Creating Directory: " << dirName << endl;
 
     if (mkdir(dirName.c_str(), 0777) == -1) {
         cerr << "Error :  " << strerror(errno) << endl;
     }
 }
 
-void createFile(std::string file, std::string contents) {
+void createFile(string file, string contents) {
     // Create UTF-8 text file
-    std::cout << "Creating File: " << file << std::endl;
+    cout << "Creating File: " << file << endl;
     ofstream MyFile(file);
 
-    MyFile << contents << std::endl;
+    MyFile << contents << endl;
     MyFile.close();
 }
 

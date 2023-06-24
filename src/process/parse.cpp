@@ -1,17 +1,17 @@
 // yaml-cpp library
 #include "yaml-cpp/yaml.h"
 
-std::string parseYAML(std::string parameter) {
+string parseYAML(string parameter) {
     YAML::Node basenode = YAML::LoadFile(bundlerFile);
 
-    const std::string parameterAnswer = basenode[parameter].as<std::string>();
+    const string parameterAnswer = basenode[parameter].as<string>();
     return parameterAnswer;
 }
 
-std::string parseYAML_Vector(std::string parameter, int cell) {
+string parseYAML_Vector(string parameter, int cell) {
     YAML::Node basenode = YAML::LoadFile(bundlerFile);
 
-    std::string parameterAnswer = basenode[parameter][cell].as<std::string>();
+    string parameterAnswer = basenode[parameter][cell].as<string>();
     
     return parameterAnswer;
 }

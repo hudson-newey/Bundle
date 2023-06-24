@@ -7,7 +7,6 @@
 #endif
 
 #include<iostream>
-using namespace std;
 
 //function to get lastt index of a character 
 int getLastIndex(char *s, char c)
@@ -30,11 +29,11 @@ int getLastIndex(char *s, char c)
 }
 
 
-std::string findDir() {
+string findDir() {
 	char buff[FILENAME_MAX]; //create string buffer to hold path
 	GetCurrentDir( buff, FILENAME_MAX );
 	char* current_working_dir(buff);
 
 	// remove directory and keep directory name
-	return std::string(current_working_dir).erase(0, getLastIndex(current_working_dir, '/') + 1);
+	return string(current_working_dir).erase(0, getLastIndex(current_working_dir, '/') + 1);
 }

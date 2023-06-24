@@ -1,9 +1,8 @@
 #!/bin/bash
-# BUNDLER build file
 
-rm ./build/bundler
-if [ ! -d "build/" ]; then
-    mkdir build
-fi
+rm -r ./build/;
+mkdir ./build/;
 
-g++ src/main.cpp -lyaml-cpp -o build/bundler
+cd ./build/;
+cmake ..;
+cmake --build .

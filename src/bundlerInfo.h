@@ -1,7 +1,8 @@
 // global imports
 #include <iostream>
 #include <stdlib.h>
+#include <string>
 
 // global constants
-const std::string bundlerVersion = "1.0";
-const std::string bundlerFile = "bundle.yaml";
+const string bundlerVersion = "1.0";
+const string bundlerFile = "bundle.yaml";

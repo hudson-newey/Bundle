@@ -1,7 +1,7 @@
 void gitCommit() {
     // get user specified commit message
-    std::cout << "(Commit Message) ";
-    std::string commitMessage = "";
+    cout << "(Commit Message) ";
+    string commitMessage = "";
     getline(cin, commitMessage, '\n');
 
     // modify commit message to commit command

@@ -1,8 +1,6 @@
 #include<string.h>
 
-using namespace std;
-
-void runScript(std::string command) {
+void runScript(string command) {
    char cmd[256];
    strcpy(cmd, command.c_str());
    system(cmd); // comment out for debugging
