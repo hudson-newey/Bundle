@@ -1,7 +1,8 @@
 #include "../process/findBundle.cpp"
 #include "getScripts.cpp"
 
-void bundlerRun() {
+void bundlerRun()
+{
     initBundler();
     getScriptsFromBundle();
 }

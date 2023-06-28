@@ -1,19 +1,17 @@
-# THIS IS AN EXAMPLE BUNDLE FILE
-
 # application information
-appName: application-name
+appName: sample-application
 description: this is a sample program...
 author: <author>
 version: 1.0
 license: GNU General Public License 3.0
 
 # bundler info
-bundle-version: 1.0
+bundle-version: 1.0.0
 
 # application source, runtime and build directory
-runtime: runtime/
-source: src/
+runtime : runtime/
+source : src/
 scriptCount: 2
 scripts:
-  - 'go run ./example/main.go'
-  - 'python3 ./example/fileServer.py'
+  - 'go run main.go'
+  - 'python3 fileServer.py'

@@ -1,4 +1,6 @@
-#include<string.h>
+using namespace std;
+
+#include <string.h>
 
 void runScript(string command) {
    char cmd[256];

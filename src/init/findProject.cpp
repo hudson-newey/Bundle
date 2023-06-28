@@ -1,3 +1,5 @@
+using namespace std;
+
 #ifdef WINDOWS
 #include <direct.h>
 #define GetCurrentDir _getcwd
@@ -6,33 +8,34 @@
 #define GetCurrentDir getcwd
 #endif
 
-#include<iostream>
+#include <iostream>
+#include <string>
 
-//function to get lastt index of a character 
+// function to get lastt index of a character
 int getLastIndex(char *s, char c)
 {
 	int length;
-	int i; //loop counter
-	//get length
+	int i; // loop counter
+	// get length
 	length = strlen(s);
-	
-	//run loop from length-1 to 0
-	for(i=(length-1); i>=0; i--)
+
+	// run loop from length-1 to 0
+	for (i = (length - 1); i >= 0; i--)
 	{
-		//compare character with each charater of string
-		if(s[i]==c)
-			return i; //character found return index
+		// compare character with each charater of string
+		if (s[i] == c)
+			return i; // character found return index
 	}
-	
-	//if character not found return -1
+
+	// if character not found return -1
 	return -1;
 }
 
-
-string findDir() {
-	char buff[FILENAME_MAX]; //create string buffer to hold path
-	GetCurrentDir( buff, FILENAME_MAX );
-	char* current_working_dir(buff);
+string findDir()
+{
+	char buff[FILENAME_MAX]; // create string buffer to hold path
+	GetCurrentDir(buff, FILENAME_MAX);
+	char *current_working_dir(buff);
 
 	// remove directory and keep directory name
 	return string(current_working_dir).erase(0, getLastIndex(current_working_dir, '/') + 1);

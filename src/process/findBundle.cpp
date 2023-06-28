@@ -1,26 +1,39 @@
+using namespace std;
+
+#include <iostream>
 #include <fstream>
+#include <string>
+#include "../bundlerInfo.h"
 
-bool fileExists(string fileName) {
-   /* try to open file to read */
-   ifstream ifile;
-   ifile.open(fileName);
-   if(ifile) {
-      return true;
-   } else {
-      return false;
-   }
+bool fileExists(string fileName)
+{
+    /* try to open file to read */
+    ifstream file;
+    file.open(fileName);
+    if (file)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 
-   return false;
+    return false;
 }
 
-bool unitChecks() {
+bool validateStructure()
+{
     // check a bundle file exists
-    if (!fileExists("bundle.yaml")) {
+    if (!fileExists("bundle.yaml"))
+    {
         cout << "\033[1;31mbundle.yaml Not Found!\033[0m" << endl;
         return false;
 
-    // check bundle version is compatible
-    } else if (parseYAML("bundle-version") > bundlerVersion) {
+        // check bundle version is compatible
+    }
+    else if (parseYAML("bundle-version") > BUNDLER_VERSION)
+    {
         cout << "\033[1;31mIncompatible Bundler Version, Please Update...\033[0m" << endl;
         return false;
     }
@@ -28,13 +41,18 @@ bool unitChecks() {
     return true;
 }
 
-void initBundler() {
-   bool validBundle = unitChecks();
-    if (validBundle) {
+void initBundler()
+{
+    bool validBundle = validateStructure();
+    if (validBundle)
+    {
         // start program and give CLI headers
-        cout << "\033[1;33m" << parseYAML("appName") << " v" << parseYAML("version") << "\033[0m" << "\n\n";
-    } else {
+        cout << "\033[1;33m" << parseYAML("appName") << " v" << parseYAML("version") << "\033[0m" << endl;
+    }
+    else
+    {
         // bundler had a problem with the given "bundle.yaml" file
-        exit(0);
+        cout << "\033[1;31mAn error had occurred while parsing the bundle.yaml file, please check the structure of the file and try again\033[0m" << endl;
+        exit(1);
     }
 }

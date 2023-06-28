@@ -1,4 +1,10 @@
-void gitCommit() {
+using namespace std;
+
+#include <iostream>
+#include <string>
+
+void gitCommit()
+{
     // get user specified commit message
     cout << "(Commit Message) ";
     string commitMessage = "";
