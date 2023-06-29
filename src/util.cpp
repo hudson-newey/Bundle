@@ -2,6 +2,7 @@ using namespace std;
 
 #include <iostream>
 #include <string>
+#include <unistd.h>
 
 void printError(
     int errorCode = 1,
@@ -13,4 +14,9 @@ void printError(
     if (!recoverable) {
         exit(errorCode);
     }
+}
+
+// checks if the current calling user is a super user
+bool isSu() {
+    return getuid() == 0;
 }

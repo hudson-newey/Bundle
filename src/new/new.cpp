@@ -2,7 +2,6 @@ using namespace std;
 
 #include <iostream>
 #include <string>
-#include <iostream>
 #include <filesystem>
 #include <cstdlib>
 
@@ -16,8 +15,8 @@ void generateFromTemplate(string templateName)
     {
         filesystem::copy(source, target, filesystem::copy_options::skip_existing | filesystem::copy_options::recursive);
     }
-    catch (exception &e)
+    catch (const exception &e)
     {
-        cout << e.what() << endl;
+        printError(1, e.what());
     }
 }
