@@ -6,7 +6,7 @@ using namespace std;
 #include <fstream>
 #include <string>
 
-#include "../bundlerInfo.h"
+#include "../bundlerInfo.hpp"
 
 void createRepoTemplate()
 {

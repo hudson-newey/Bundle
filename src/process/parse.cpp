@@ -3,7 +3,7 @@ using namespace std;
 // yaml-cpp library
 #include <string>
 #include "yaml-cpp/yaml.h"
-#include "../bundlerInfo.h"
+#include "../bundlerInfo.hpp"
 
 string parseYAML(string parameter)
 {

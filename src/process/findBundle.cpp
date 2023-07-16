@@ -3,7 +3,7 @@ using namespace std;
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "../bundlerInfo.h"
+#include "../bundlerInfo.hpp"
 
 bool fileExists(string fileName)
 {

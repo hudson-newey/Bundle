@@ -10,7 +10,7 @@ A framework to easily run, distribute and edit your projects
 * `bundler commit`
 * `bundler install`
 * `bundler new <templateName>`
-* `bundler ram <load|unload>`
+* `bundler ram <load|unload> <filePath>`
 
 ### bundler run / bundler
 

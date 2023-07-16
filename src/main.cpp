@@ -2,7 +2,7 @@ using namespace std;
 
 #include <string>
 
-#include "bundlerInfo.h"
+#include "bundlerInfo.hpp"
 #include "util.cpp"
 #include "process/parse.cpp"
 #include "run/main.cpp"
@@ -10,7 +10,7 @@ using namespace std;
 #include "init/main.cpp"
 #include "system/ram.cpp"
 
-#include "addons/addons.h"
+#include "addons/addons.hpp"
 
 int main(int argc, char const *argv[])
 {
