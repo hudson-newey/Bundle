@@ -17,3 +17,8 @@ scriptCount: 2
 scripts:
   - 'go run ./example/main.go'
   - 'python3 ./example/fileServer.py'
+
+dependencyCount: 2
+dependencies:
+  - go
+  - python3

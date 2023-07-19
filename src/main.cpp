@@ -9,6 +9,7 @@ using namespace std;
 #include "new/new.cpp"
 #include "init/main.cpp"
 #include "system/ram.cpp"
+#include "dependencies/verifyDependencies.cpp"
 
 #include "addons/addons.hpp"
 
@@ -24,6 +25,8 @@ int main(int argc, char const *argv[])
             bundlerInit();
         } else if (command == "commit") {
             gitCommit();
+        } else if (command == "check") {
+            verifyAllDependencies();
         } else if (command == "new" || command == "n") {
 
             if (argc == 2) {
