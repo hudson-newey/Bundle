@@ -10,6 +10,7 @@ using namespace std;
 #include "init/main.cpp"
 #include "system/ram.cpp"
 #include "dependencies/verifyDependencies.cpp"
+#include "dependencies/installDependencies.cpp"
 
 #include "addons/addons.hpp"
 
@@ -27,6 +28,8 @@ int main(int argc, char const *argv[])
             gitCommit();
         } else if (command == "check") {
             verifyAllDependencies();
+        } else if (command == "install") {
+            installAllDependencies();
         } else if (command == "new" || command == "n") {
 
             if (argc == 2) {

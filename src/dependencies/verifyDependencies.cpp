@@ -10,8 +10,10 @@ bool verifyDependency(string dependency) {
     return (result == 0);
 }
 
-void verifyAllDependencies()
+bool verifyAllDependencies()
 {
+    bool foundError = false;
+
     for (int i = 0; i < stoi(parseYAML("dependencyCount")); i++)
     {
         const string dependencyToVerify = parseYAML_Vector("dependencies", i);
@@ -20,6 +22,9 @@ void verifyAllDependencies()
         if (!isSystemCommand)
         {
             printError(2, "dependency " + dependencyToVerify + " is not installed on the system", true);
+            foundError = true;
         }
     }
+
+    return foundError;
 }

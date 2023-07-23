@@ -22,3 +22,7 @@ dependencyCount: 2
 dependencies:
   - go
   - python3
+
+installCount: 1
+installCommands:
+  - 'echo install script works!'
