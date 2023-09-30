@@ -1,8 +1,7 @@
 cmake_minimum_required(VERSION 3.1)
-project(YamlExample)
+project(Bundler)
 
-add_subdirectory(lib/yaml-cpp) # This is one way of referencing another
-                                       # CMake project
+add_subdirectory(lib/yaml-cpp)
 
 add_executable(
     bundler

@@ -14,14 +14,15 @@ bool verifyAllDependencies()
 {
     bool foundError = false;
 
-    for (int i = 0; i < stoi(parseYAML("dependencyCount")); i++)
+    vector<string> dependencies = parseYAML_Vector("dependencies");
+
+    for (int i = 0; i < dependencies.size(); i++)
     {
-        const string dependencyToVerify = parseYAML_Vector("dependencies", i);
-        const bool isSystemCommand = verifyDependency(dependencyToVerify);
+        const bool isSystemCommand = verifyDependency(dependencies[i]);
 
         if (!isSystemCommand)
         {
-            printError(2, "dependency " + dependencyToVerify + " is not installed on the system", true);
+            printError(2, "dependency " + dependencies[i] + " is not installed on the system", true);
             foundError = true;
         }
     }

@@ -4,9 +4,10 @@ using namespace std;
 #include <cstdlib>
 
 void installAllDependencies() {
-    for (int i = 0; i < stoi(parseYAML("installCount")); i++)
+    vector<string> installCommands = parseYAML_Vector("installCommands");
+
+    for (int i = 0; i < installCommands.size(); i++)
     {
-        const string installCommand = parseYAML_Vector("installCommands", i);
-        runScript(installCommand);
+        runScript(installCommands[i]);
     }
 }

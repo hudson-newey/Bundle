@@ -6,9 +6,11 @@ using namespace std;
 
 void getScriptsFromBundle()
 {
-    for (int i = 0; i < stoi(parseYAML("scriptCount")); i++)
+    vector<string> commandsToRun = parseYAML_Vector("scripts");
+
+    for (int i = 0; i < commandsToRun.size(); i++)
     {
-        const string commandToRun = parseYAML_Vector("scripts", i);
-        runScript(commandToRun);
+        runScript(commandsToRun[i]);
     }
+
 }

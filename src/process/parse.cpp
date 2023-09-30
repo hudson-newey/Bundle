@@ -13,11 +13,14 @@ string parseYAML(string parameter)
     return parameterAnswer;
 }
 
-string parseYAML_Vector(string parameter, int cell)
+vector<string> parseYAML_Vector(string parameter)
 {
     YAML::Node basenode = YAML::LoadFile(BUNDLER_FILE);
+    vector<string> result;
 
-    string parameterAnswer = basenode[parameter][cell].as<string>();
+    for (const auto& node : basenode[parameter]) {
+        result.push_back(node.as<string>());
+    }
 
-    return parameterAnswer;
+    return result;
 }
