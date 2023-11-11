@@ -1,6 +1,5 @@
 # BUNDLER SPECIFIC
 build/
-.vscode/
 
 # PREBUILT .GITIGNORE
 # Prerequisites

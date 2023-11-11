@@ -8,7 +8,8 @@ version: 1.0
 license: GNU General Public License 3.0
 
 # bundler info
-bundle-version: 1.1
+# bundler info
+bundle-version: 1.0.0
 
 # application source, runtime and build directory
 runtime: runtime/

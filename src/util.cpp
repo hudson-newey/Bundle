@@ -9,7 +9,7 @@ void printError(
     string errorMessage = "An error occurred.",
     bool recoverable = false
 ) {
-    cout << "\033[1;31m" << "Error (" << errorCode << "): " << errorMessage << "\033[0m" << endl;
+    cout << "\033[1;31m" << "Error (" << errorCode << "): " << errorMessage << "\033[0m" << "\n";
 
     if (!recoverable) {
         exit(errorCode);

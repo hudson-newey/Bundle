@@ -28,8 +28,8 @@ void loadPathToRam(string fileName) {
         printError(1, e.what());
     }
 
-    cout << fileName << " is now available under " << ramDiskPartition << "/" << fileName << endl;
-    cout << "use 'bundler ram unload' to unload ramDisk" << endl;
+    cout << fileName << " is now available under " << ramDiskPartition << "/" << fileName << "\n";
+    cout << "use 'bundler ram unload' to unload ramDisk" << "\n";
 }
 
 void unloadPathFromRam() {
