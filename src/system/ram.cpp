@@ -1,15 +1,14 @@
-using namespace std;
-
 #include <iostream>
 #include <string>
 #include <filesystem>
 #include <cstdlib>
+#include <stdlib.h>
 
-string ramDiskPartition = "/mnt/ram";
+std::string ramDiskPartition = "/mnt/ram";
 
-void loadPathToRam(string fileName) {
-    string mkdirCommand = "mkdir " + ramDiskPartition;
-    string mountCommand = "mount -t tmpfs -o size=128m tmpfs " + ramDiskPartition;
+void loadPathToRam(std::string fileName) {
+    std::string mkdirCommand = "mkdir " + ramDiskPartition;
+    std::string mountCommand = "mount -t tmpfs -o size=128m tmpfs " + ramDiskPartition;
 
     try
     {
@@ -18,36 +17,36 @@ void loadPathToRam(string fileName) {
         system(mountCommand.c_str());
 
         // copy file to ramdisk partition
-        const auto source = filesystem::current_path() / fileName;
+        const auto source = std::filesystem::current_path() / fileName;
         const auto target = ramDiskPartition;
 
-        filesystem::copy(source, target, filesystem::copy_options::skip_existing | filesystem::copy_options::recursive);
+        std::filesystem::copy(source, target, std::filesystem::copy_options::skip_existing | std::filesystem::copy_options::recursive);
     }
-    catch (const exception &e)
+    catch (const std::exception &e)
     {
         printError(1, e.what());
     }
 
-    cout << fileName << " is now available under " << ramDiskPartition << "/" << fileName << "\n";
-    cout << "use 'bundler ram unload' to unload ramDisk" << "\n";
+    std::cout << fileName << " is now available under " << ramDiskPartition << "/" << fileName << "\n";
+    std::cout << "use 'bundler ram unload' to unload ramDisk" << "\n";
 }
 
 void unloadPathFromRam() {
-    string removeDirCommand = "rm -rf " + ramDiskPartition;
-    string unmountCommand = "umount " + ramDiskPartition;
+    std::string removeDirCommand = "rm -rf " + ramDiskPartition;
+    std::string unmountCommand = "umount " + ramDiskPartition;
 
     try
     {
         system(unmountCommand.c_str());
         system(removeDirCommand.c_str());
     }
-    catch(const exception &e)
+    catch(const std::exception &e)
     {
         printError(1, e.what());
     }
 }
 
-void ramManipulate(string command, string fileName) {
+void ramManipulate(std::string command, std::string fileName) {
     // check if the user is a super user
     if (!isSu()) {
         printError(1, "You must be a super user to use this command.");

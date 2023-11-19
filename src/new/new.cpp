@@ -1,21 +1,19 @@
-using namespace std;
-
 #include <iostream>
 #include <string>
 #include <filesystem>
 #include <cstdlib>
 
-void generateFromTemplate(string templateName)
+void generateFromTemplate(std::string templateName)
 {
-    const string username = getenv("USERNAME");
+    const std::string username = getenv("USERNAME");
     const auto source = "/home/" + username + "/.local/templates/" + templateName;
-    const auto target = filesystem::current_path();
+    const auto target = std::filesystem::current_path();
 
     try
     {
-        filesystem::copy(source, target, filesystem::copy_options::skip_existing | filesystem::copy_options::recursive);
+        std::filesystem::copy(source, target, std::filesystem::copy_options::skip_existing | std::filesystem::copy_options::recursive);
     }
-    catch (const exception &e)
+    catch (const std::exception &e)
     {
         printError(1, e.what());
     }

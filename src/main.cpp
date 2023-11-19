@@ -1,5 +1,3 @@
-using namespace std;
-
 #include <string>
 
 #include "bundlerInfo.hpp"
@@ -17,7 +15,7 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
     if (argc > 1) {
-        const string command = argv[1];
+        const std::string command = argv[1];
 
         // get CLI
         if (command == "run") {
@@ -36,7 +34,7 @@ int main(int argc, char const *argv[])
                 printError(1, "Must provide a template name after 'new' command");
             }
 
-            const string templateName = argv[2];
+            const std::string templateName = argv[2];
             generateFromTemplate(templateName);
 
         } else if (command == "ram") {
@@ -45,7 +43,7 @@ int main(int argc, char const *argv[])
                 printError(1, "Must provide a command after 'ram' command");
             }
 
-            const string ramCommand = argv[2];
+            const std::string ramCommand = argv[2];
             if (argc == 3 && ramCommand == "load") {
                 printError(1, "Must provide a file name after 'ram load' command");
             }
@@ -53,7 +51,7 @@ int main(int argc, char const *argv[])
             if (argc == 3 && ramCommand == "unload") {
                 unloadPathFromRam();
             } else {
-                const string fileName = argv[3];
+                const std::string fileName = argv[3];
                 ramManipulate(ramCommand, fileName);
             }
         } else {

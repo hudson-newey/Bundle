@@ -1,5 +1,3 @@
-using namespace std;
-
 #ifdef WINDOWS
 #include <direct.h>
 #define GetCurrentDir _getcwd
@@ -31,12 +29,12 @@ int getLastIndex(char *s, char c)
 	return -1;
 }
 
-string findDir()
+std::string findDir()
 {
 	char buff[FILENAME_MAX]; // create string buffer to hold path
 	GetCurrentDir(buff, FILENAME_MAX);
 	char *current_working_dir(buff);
 
 	// remove directory and keep directory name
-	return string(current_working_dir).erase(0, getLastIndex(current_working_dir, '/') + 1);
+	return std::string(current_working_dir).erase(0, getLastIndex(current_working_dir, '/') + 1);
 }

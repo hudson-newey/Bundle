@@ -1,25 +1,22 @@
-using namespace std;
-
 // yaml-cpp library
-#include <string>
 #include "yaml-cpp/yaml.h"
 #include "../bundlerInfo.hpp"
 
-string parseYAML(string parameter)
+std::string parseYAML(std::string parameter)
 {
     YAML::Node basenode = YAML::LoadFile(BUNDLER_FILE);
 
-    const string parameterAnswer = basenode[parameter].as<string>();
+    const std::string parameterAnswer = basenode[parameter].as<std::string>();
     return parameterAnswer;
 }
 
-vector<string> parseYAML_Vector(string parameter)
+std::vector<std::string> parseYAML_Vector(std::string parameter)
 {
     YAML::Node basenode = YAML::LoadFile(BUNDLER_FILE);
-    vector<string> result;
+    std::vector<std::string> result;
 
     for (const auto& node : basenode[parameter]) {
-        result.push_back(node.as<string>());
+        result.push_back(node.as<std::string>());
     }
 
     return result;
