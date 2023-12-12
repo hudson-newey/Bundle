@@ -15,7 +15,8 @@ std::vector<std::string> parseYAML_Vector(std::string parameter)
     YAML::Node basenode = YAML::LoadFile(BUNDLER_FILE);
     std::vector<std::string> result;
 
-    for (const auto& node : basenode[parameter]) {
+    for (const auto &node : basenode[parameter])
+    {
         result.push_back(node.as<std::string>());
     }
 

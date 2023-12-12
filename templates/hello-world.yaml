@@ -1,0 +1,15 @@
+appName: application-name
+description: this is a sample program...
+author: <author>
+version: 1.0
+license: GNU General Public License 3.0
+
+bundle-version: 1.0.0
+
+runtime: runtime/
+source: src/
+scripts:
+  - 'echo "Hello World"'
+
+dependencies:
+  - echo
