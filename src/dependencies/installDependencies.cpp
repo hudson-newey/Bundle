@@ -3,6 +3,8 @@
 
 void installAllDependencies()
 {
+    initBundler();
+
     std::vector<std::string> installCommands = parseYAML_Vector("installCommands");
 
     if (installCommands.size() == 0)

@@ -11,6 +11,8 @@ bool verifyDependency(std::string dependency)
 
 bool verifyAllDependencies()
 {
+    initBundler();
+
     bool foundError = false;
 
     std::vector<std::string> dependencies = parseYAML_Vector("dependencies");
