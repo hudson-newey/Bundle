@@ -1,5 +1,12 @@
 # Building hudson-newey/Bundler
 
+Supported compilers: gcc (g++) on Linux
+
+I have plans to support other platforms (Windows and MacOs), and compilers (CLang and CL).
+However, I still need to fully flush out all the requirements on Linux gcc first.
+
+---
+
 1. Clone the repository
 
 ```sh
