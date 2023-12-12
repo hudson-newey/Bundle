@@ -1,4 +1,3 @@
-// yaml-cpp library
 #include "yaml-cpp/yaml.h"
 #include "../bundlerInfo.hpp"
 

@@ -1,6 +1,6 @@
 # Bundler
 
-A framework to easily run, distribute and edit your projects
+A program to easily run, and distribute projects / templates
 
 To fix name conflicts with ruby's [bundler](https://bundler.io), I suggest that you alias the hudson-newey/Bundler executable to `b`.
 

@@ -18,6 +18,17 @@ int main(int argc, char const *argv[])
     {
         const std::string command = argv[1];
 
+        if (command == "-h" || command == "--help")
+        {
+            std::cout << BUNDLER_HELP_DOCS;
+            return 0;
+        }
+        else if (command == "-v" || command == "--version")
+        {
+            std::cout << BUNDLER_VERSION << "\n";
+            return 0;
+        }
+
         // get CLI
         if (command == "run" || command == "r")
         {
@@ -44,7 +55,7 @@ int main(int argc, char const *argv[])
 
             if (argc == 2)
             {
-                printError(1, "Must provide a template name after 'new' command");
+                printError(1, "Must provide a template name after 'new' command\n\teg. bundler new <template-name>");
             }
 
             const std::string templateName = argv[2];
@@ -55,13 +66,13 @@ int main(int argc, char const *argv[])
 
             if (argc == 2)
             {
-                printError(1, "Must provide a command after 'ram' command");
+                printError(1, "Must provide a command after 'ram' command\n\teg. bundler ram <load|unload> <filePath>");
             }
 
             const std::string ramCommand = argv[2];
             if (argc == 3 && ramCommand == "load")
             {
-                printError(1, "Must provide a file name after 'ram load' command");
+                printError(1, "Must provide a file name after 'ram load' command\n\teg. bundler ram <load|unload> <filePath>");
             }
 
             if (argc == 3 && ramCommand == "unload")

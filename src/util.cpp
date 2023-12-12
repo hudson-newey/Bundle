@@ -24,6 +24,13 @@ void printWarning(std::string warningMessage = "A warning occurred.")
               << "\n";
 }
 
+void printInfo(std::string infoMessage = "An info message occurred.")
+{
+    std::cout << "\033[1;34m"
+              << "Info: " << infoMessage << "\033[0m"
+              << "\n";
+}
+
 // checks if the current calling user is a super user
 bool isSu()
 {
