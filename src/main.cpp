@@ -33,18 +33,16 @@ int main(int argc, char const *argv[])
         // get CLI
         if (command == "run" || command == "r")
         {
-            if (argc == 2) {
-                bundlerRun();
-            } else {
+            if (argc > 2) {
                 const std::string templateName = argv[2];
 
                 const std::string username = getlogin();
                 const auto templatePath = "/home/" + username + "/.local/templates/" + templateName + ".yaml";
 
                 BUNDLER_FILE = templatePath;
-
-                bundlerRun();
             }
+
+            bundlerRun();
         }
         else if (command == "init")
         {
@@ -56,10 +54,28 @@ int main(int argc, char const *argv[])
         }
         else if (command == "check" || command == "c")
         {
+            if (argc > 2) {
+                const std::string templateName = argv[2];
+
+                const std::string username = getlogin();
+                const auto templatePath = "/home/" + username + "/.local/templates/" + templateName + ".yaml";
+
+                BUNDLER_FILE = templatePath;
+            }
+
             verifyAllDependencies();
         }
         else if (command == "install" || command == "i")
         {
+            if (argc > 2) {
+                const std::string templateName = argv[2];
+
+                const std::string username = getlogin();
+                const auto templatePath = "/home/" + username + "/.local/templates/" + templateName + ".yaml";
+
+                BUNDLER_FILE = templatePath;
+            }
+
             installAllDependencies();
         }
         else if (command == "new" || command == "n")
