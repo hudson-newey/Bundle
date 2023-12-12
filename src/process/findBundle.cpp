@@ -6,7 +6,15 @@
 bool fileExists(std::string fileName)
 {
     std::ifstream file;
-    return file.open(fileName);
+
+    file.open(fileName);
+
+    if (file)
+    {
+        return true;
+    }
+
+    return false;
 }
 
 bool validateStructure()
