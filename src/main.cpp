@@ -1,4 +1,5 @@
 #include <string>
+#include <unistd.h>
 
 #include "bundlerInfo.hpp"
 #include "util.cpp"
@@ -32,7 +33,18 @@ int main(int argc, char const *argv[])
         // get CLI
         if (command == "run" || command == "r")
         {
-            bundlerRun();
+            if (argc == 2) {
+                bundlerRun();
+            } else {
+                const std::string templateName = argv[2];
+
+                const std::string username = getlogin();
+                const auto templatePath = "/home/" + username + "/.local/templates/" + templateName + ".yaml";
+
+                BUNDLER_FILE = templatePath;
+
+                bundlerRun();
+            }
         }
         else if (command == "init")
         {

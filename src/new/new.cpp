@@ -5,7 +5,7 @@
 
 void generateFromTemplate(std::string templateName)
 {
-    const std::string username = getenv("USERNAME");
+    const std::string username = getlogin();
     const auto source = "/home/" + username + "/.local/templates/" + templateName;
     const auto target = std::filesystem::current_path();
 

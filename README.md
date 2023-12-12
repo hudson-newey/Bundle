@@ -17,7 +17,8 @@ To build from source, see [building.md](BUILDING.md)
 Alternatives / Shorthands are listed as sub items
 
 - `bundler run`
-  - `bundler r`
+  - `bundler r <templateName>`
+  - `bundler r` (defaults to current directory bundle.yaml file)
   - `bundler`
 - `bundler install`
   - `bundler i`
@@ -54,3 +55,21 @@ Loads a file directory into RAM-disk for sub-millisecond read/write
 ### bundler commit
 
 A sample Bundler addon for `git`. This will add, commit and push your HEAD branch to origin.
+
+---
+
+**Footer Notes:**
+
+I will only increment the bundler version when there is a breaking change to the bundle.yaml.
+
+This includes:
+
+- Additional features to the bundle.yaml spec
+- Renaming of bundle.yaml keys
+- Removal of bundle.yaml keys
+
+This does **not** include:
+
+- Bug fixes
+- Changes to compiler support
+- Additional features to the bundler cli

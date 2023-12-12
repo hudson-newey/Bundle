@@ -1,15 +1,15 @@
-appName: application-name
-description: this is a sample program...
-author: <author>
+appName: hello-world
+description: A simple hello world program
+author: John Doe
 version: 1.0
-license: GNU General Public License 3.0
+license: Unknown
 
-bundle-version: 1.0.0
+bundle-version: 1.0
 
-runtime: runtime/
-source: src/
+runtime: .
+source: .
 scripts:
-  - 'echo "Hello World"'
+  - 'echo "Hello World!"'
 
 dependencies:
   - echo

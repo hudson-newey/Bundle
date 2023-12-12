@@ -20,9 +20,9 @@ bool fileExists(std::string fileName)
 bool validateStructure()
 {
     // check a bundle file exists
-    if (!fileExists("bundle.yaml"))
+    if (!fileExists(BUNDLER_FILE))
     {
-        printError(1, "bundle.yaml Not Found!");
+        printError(1, BUNDLER_FILE + " Not Found!");
         return false;
 
         // check bundle version is compatible
