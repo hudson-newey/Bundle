@@ -1,0 +1,19 @@
+appName: cmake-build
+description: A simple hello world program
+author: John Doe
+version: 1.0
+license: Unknown
+
+bundle-version: 1.0
+
+runtime: .
+source: .
+scripts:
+  - 'if [ -d ./build/ ]; then; mkdir ./build/; fi'
+  - 'cmake . -B ./build'
+  - 'cd ./build/; make -I ./build/'
+
+dependencies:
+  - mkdir
+  - cmake
+  - make

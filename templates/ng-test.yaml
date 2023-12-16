@@ -1,0 +1,15 @@
+appName: angular-test
+description: A program to lint and test an angular project
+author: Hudson Newey
+version: 1.0
+license: MIT
+
+bundle-version: 1.1
+
+runtime: .
+source: .
+scripts:
+  - 'ng test --include'
+
+dependencies:
+  - ng
