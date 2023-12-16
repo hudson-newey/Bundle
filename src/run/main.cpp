@@ -1,8 +1,8 @@
 #include "../process/findBundle.cpp"
 #include "getScripts.cpp"
 
-void bundlerRun()
+void bundlerRun(std::vector<std::string> arguments)
 {
     initBundler();
-    getScriptsFromBundle();
+    getScriptsFromBundle(arguments);
 }

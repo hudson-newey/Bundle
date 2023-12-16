@@ -1,5 +1,6 @@
 #include <string>
 #include <unistd.h>
+#include <vector>
 #include <map>
 
 #include "bundlerInfo.hpp"
@@ -36,7 +37,7 @@ int main(int argc, const char *argv[])
     // default is "bundler run" if the program is run without any arguments
     if (argc == 1)
     {
-        bundlerRun();
+        bundlerRun({});
         return 0;
     }
 
@@ -67,7 +68,7 @@ int main(int argc, const char *argv[])
     switch (claMap[command])
     {
     case Command::HELP: {
-        std::cout << BUNDLER_HELP_DOCS;
+        std::cout << BUNDLER_HELP_DOCS << "\n";
         break;
     }
 
@@ -77,6 +78,8 @@ int main(int argc, const char *argv[])
     }
 
     case Command::RUN: {
+        std::vector<std::string> arguments;
+
         if (argc > 2)
         {
             const std::string templateName = argv[2];
@@ -85,10 +88,14 @@ int main(int argc, const char *argv[])
             const auto templatePath = "/home/" + username + "/.local/templates/" + templateName + ".yaml";
 
             BUNDLER_FILE = templatePath;
+
+            for (int i = 3; i < argc; i++)
+            {
+                arguments.push_back(argv[i]);
+            }
         }
 
-
-        bundlerRun();
+        bundlerRun(arguments);
         break;
     }
 

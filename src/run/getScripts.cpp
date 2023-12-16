@@ -1,7 +1,7 @@
 #include <string>
 #include "runScripts.cpp"
 
-void getScriptsFromBundle()
+void getScriptsFromBundle(std::vector<std::string> arguments)
 {
     std::vector<std::string> commandsToRun = parseYAML_Vector("scripts");
 
@@ -13,6 +13,6 @@ void getScriptsFromBundle()
 
     for (int i = 0; i < commandsToRun.size(); i++)
     {
-        runScript(commandsToRun[i]);
+        runScript(commandsToRun[i], arguments);
     }
 }

@@ -15,6 +15,6 @@ void installAllDependencies()
 
     for (int i = 0; i < installCommands.size(); i++)
     {
-        runScript(installCommands[i]);
+        runScript(installCommands[i], {});
     }
 }
