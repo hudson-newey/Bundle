@@ -19,7 +19,10 @@ Alternatives / Shorthands are listed as sub items
 - `bundler run`
   - `bundler r <templateName>`
   - `bundler r` (defaults to current directory bundle.yaml file)
-  - `bundler`
+  - `bundler` (defaults to current directory bundle.yaml file)
+- `bundler list`
+  - `bundler ls`
+  - `bundler l`
 - `bundler install`
   - `bundler i`
 - `bundler check`
@@ -33,6 +36,10 @@ Alternatives / Shorthands are listed as sub items
 ### bundler run / bundler
 
 Bundler run will run your projects "scripts", as specified within your bundle.yaml file
+
+### bundler list
+
+Lists out all avaliable manifests and templates that can be used with `bundler new` and `bundler run`
 
 ### bundler install
 

@@ -7,6 +7,7 @@
 #include "util.cpp"
 #include "process/parse.cpp"
 #include "run/main.cpp"
+#include "run/listScripts.cpp"
 #include "new/new.cpp"
 #include "init/main.cpp"
 #include "system/ram.cpp"
@@ -23,6 +24,7 @@ enum class Command
     INSTALL,
     NEW,
     RAM,
+    LIST,
 
     // flags
     HELP,
@@ -52,6 +54,10 @@ int main(int argc, const char *argv[])
         {"new", Command::NEW},
         {"n", Command::NEW},
         {"ram", Command::RAM},
+
+        {"list", Command::LIST},
+        {"ls", Command::LIST},
+        {"l", Command::LIST},
 
         // flags
         {"--help", Command::HELP},
@@ -96,6 +102,11 @@ int main(int argc, const char *argv[])
         }
 
         bundlerRun(arguments);
+        break;
+    }
+
+    case Command::LIST: {
+        listScripts();
         break;
     }
 
