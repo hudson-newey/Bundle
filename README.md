@@ -23,6 +23,8 @@ Alternatives / Shorthands are listed as sub items
 - `bundler list`
   - `bundler ls`
   - `bundler l`
+- `bundler view <manifestName>`
+  - `bundler v`
 - `bundler install`
   - `bundler i`
 - `bundler check`
@@ -40,6 +42,10 @@ Bundler run will run your projects "scripts", as specified within your bundle.ya
 ### bundler list
 
 Lists out all avaliable manifests and templates that can be used with `bundler new` and `bundler run`
+
+### bundler view
+
+Prints the contents of a manifest file (a .yaml file located in the `~/.local/templates/` directory)
 
 ### bundler install
 

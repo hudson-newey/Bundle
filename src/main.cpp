@@ -8,6 +8,7 @@
 #include "process/parse.cpp"
 #include "run/main.cpp"
 #include "run/listScripts.cpp"
+#include "run/viewScript.cpp"
 #include "new/new.cpp"
 #include "init/main.cpp"
 #include "system/ram.cpp"
@@ -25,6 +26,7 @@ enum class Command
     NEW,
     RAM,
     LIST,
+    VIEW,
 
     // flags
     HELP,
@@ -58,6 +60,9 @@ int main(int argc, const char *argv[])
         {"list", Command::LIST},
         {"ls", Command::LIST},
         {"l", Command::LIST},
+
+        {"view", Command::VIEW},
+        {"v", Command::VIEW},
 
         // flags
         {"--help", Command::HELP},
@@ -107,6 +112,18 @@ int main(int argc, const char *argv[])
 
     case Command::LIST: {
         listScripts();
+        break;
+    }
+
+    case Command::VIEW: {
+        if (argc <= 2)
+        {
+            printError(1, "Must provide a manifest name after 'view' command\n\teg. bundler view <template-name>");
+        }
+
+        const std::string manifestName = argv[2];
+
+        viewManifest(manifestName);
         break;
     }
 
