@@ -42,7 +42,7 @@ void listScripts()
         return;
     }
 
-    // templates can be created using the `bundler new` command
+    // templates can be created using the `bundle new` command
     // while manifests can be run, installed, etc.. using the `bundler run` and `bundler install` commands
     // templates are re-usuable files to copy into your projects, while manifests are re-usuable scripts
     std::vector<std::string> templates {};

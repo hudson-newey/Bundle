@@ -1,7 +1,7 @@
 #include "findProject.cpp"
 #include "initRepo.cpp"
 
-void bundlerInit()
+void bundleInit()
 {
     createRepoTemplate();
 }

@@ -11,7 +11,7 @@ bool verifyDependency(std::string dependency)
 
 bool verifyAllDependencies()
 {
-    initBundler();
+    initBundle();
 
     bool foundError = false;
 

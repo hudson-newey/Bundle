@@ -4,7 +4,7 @@
 #include <fstream>
 #include <string>
 
-#include "../bundlerInfo.hpp"
+#include "../bundleInfo.hpp"
 
 void createRepoTemplate()
 {

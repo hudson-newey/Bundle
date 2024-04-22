@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "../bundlerInfo.hpp"
+#include "../bundleInfo.hpp"
 
 bool fileExists(std::string fileName)
 {
@@ -20,23 +20,23 @@ bool fileExists(std::string fileName)
 bool validateStructure()
 {
     // check a bundle file exists
-    if (!fileExists(BUNDLER_FILE))
+    if (!fileExists(BUNDLE_FILE))
     {
-        printError(1, BUNDLER_FILE + " Not Found!");
+        printError(1, BUNDLE_FILE + " Not Found!");
         return false;
 
         // check bundle version is compatible
     }
-    else if (parseYAML("bundle-version") > BUNDLER_VERSION)
+    else if (parseYAML("bundle-version") > BUNDLE_VERSION)
     {
-        printError(2, "Incompatible Bundler Version, Please Update...");
+        printError(2, "Incompatible Bundle Version, Please Update...");
         return false;
     }
 
     return true;
 }
 
-void initBundler()
+void initBundle()
 {
     bool validBundle = validateStructure();
     if (validBundle)
@@ -47,7 +47,7 @@ void initBundler()
     }
     else
     {
-        // bundler had a problem with the given "bundle.yaml" file
+        // bundle had a problem with the given "bundle.yaml" file
         printError(1, "An error had occurred while parsing the bundle.yaml file, please check the structure of the file and try again");
     }
 }

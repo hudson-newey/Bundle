@@ -1,4 +1,4 @@
-# Building hudson-newey/Bundler
+# BuildingBundle
 
 Supported compilers: gcc (g++) on Linux
 
@@ -10,7 +10,7 @@ However, I still need to fully flush out all the requirements on Linux gcc first
 1. Clone the repository
 
 ```sh
-$ git clone https://github.com/hudson-newey/Bundler.git --recursive
+$ git clone https://github.com/hudson-newey/Bundle.git --recursive
 >
 ```
 
@@ -21,7 +21,7 @@ See [.gitmodules](.gitmodules)
 2. cd into the directory
 
 ```sh
-$ cd ./Bundler/
+$ cd ./bundle/
 >
 ```
 
@@ -39,17 +39,17 @@ $ cmake ..
 >
 ```
 
-5. Build Bundler
+5. Build bundle
 
 ```sh
 $ make
 >
 ```
 
-6. Link alias the bundler binary
+6. Link alias the bundle binary
 
 ```sh
-$ echo "alias b=$(pwd)/bundler" >> ~/.zshrc
+$ echo "alias b=$(pwd)/bundle" >> ~/.zshrc
 >
 ```
 

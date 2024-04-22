@@ -5,7 +5,7 @@ author: <author>
 version: 1.0
 license: GNU General Public License 3.0
 
-# bundler info
+# bundle info
 bundle-version: 1.0.0
 
 # application source, runtime and build directory

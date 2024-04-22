@@ -3,7 +3,7 @@
 #include <vector>
 #include <map>
 
-#include "bundlerInfo.hpp"
+#include "bundleInfo.hpp"
 #include "util.cpp"
 #include "process/parse.cpp"
 #include "run/main.cpp"
@@ -14,8 +14,6 @@
 #include "system/ram.cpp"
 #include "dependencies/verifyDependencies.cpp"
 #include "dependencies/installDependencies.cpp"
-
-#include "addons/addons.hpp"
 
 enum class Command
 {
@@ -31,17 +29,14 @@ enum class Command
     // flags
     HELP,
     VERSION,
-
-    // addons
-    COMMIT
 };
 
 int main(int argc, const char *argv[])
 {
-    // default is "bundler run" if the program is run without any arguments
+    // default is "bundle run" if the program is run without any arguments
     if (argc == 1)
     {
-        bundlerRun({});
+        bundleRun({});
         return 0;
     }
 
@@ -69,9 +64,6 @@ int main(int argc, const char *argv[])
         {"-h", Command::HELP},
         {"--version", Command::VERSION},
         {"-v", Command::VERSION},
-
-        // addons
-        {"commit", Command::COMMIT}
     };
 
     const std::string command = argv[1];
@@ -79,12 +71,12 @@ int main(int argc, const char *argv[])
     switch (claMap[command])
     {
     case Command::HELP: {
-        std::cout << BUNDLER_HELP_DOCS << "\n";
+        std::cout << BUNDLE_HELP_DOCS << "\n";
         break;
     }
 
     case Command::VERSION: {
-        std::cout << BUNDLER_VERSION << "\n";
+        std::cout << BUNDLE_VERSION << "\n";
         break;
     }
 
@@ -98,7 +90,7 @@ int main(int argc, const char *argv[])
             const std::string username = getlogin();
             const auto templatePath = "/home/" + username + "/.local/templates/" + templateName + ".yaml";
 
-            BUNDLER_FILE = templatePath;
+            BUNDLE_FILE = templatePath;
 
             for (int i = 3; i < argc; i++)
             {
@@ -106,7 +98,7 @@ int main(int argc, const char *argv[])
             }
         }
 
-        bundlerRun(arguments);
+        bundleRun(arguments);
         break;
     }
 
@@ -118,7 +110,7 @@ int main(int argc, const char *argv[])
     case Command::VIEW: {
         if (argc <= 2)
         {
-            printError(1, "Must provide a manifest name after 'view' command\n\teg. bundler view <template-name>");
+            printError(1, "Must provide a manifest name after 'view' command\n\teg. bundle view <template-name>");
         }
 
         const std::string manifestName = argv[2];
@@ -128,7 +120,7 @@ int main(int argc, const char *argv[])
     }
 
     case Command::INIT: {
-        bundlerInit();
+        bundleInit();
         break;
     }
 
@@ -140,7 +132,7 @@ int main(int argc, const char *argv[])
             const std::string username = getlogin();
             const auto templatePath = "/home/" + username + "/.local/templates/" + checkTemplateName + ".yaml";
 
-            BUNDLER_FILE = templatePath;
+            BUNDLE_FILE = templatePath;
         }
 
         verifyAllDependencies();
@@ -155,7 +147,7 @@ int main(int argc, const char *argv[])
             const std::string username = getlogin();
             const auto templatePath = "/home/" + username + "/.local/templates/" + installTemplateName + ".yaml";
 
-            BUNDLER_FILE = templatePath;
+            BUNDLE_FILE = templatePath;
         }
 
         installAllDependencies();
@@ -165,7 +157,7 @@ int main(int argc, const char *argv[])
     case Command::NEW: {
         if (argc <= 2)
         {
-            printError(1, "Must provide a template name after 'new' command\n\teg. bundler new <template-name>");
+            printError(1, "Must provide a template name after 'new' command\n\teg. bundle new <template-name>");
         }
 
         const std::string newTemplateName = argv[2];
@@ -176,13 +168,13 @@ int main(int argc, const char *argv[])
     case Command::RAM: {
         if (argc == 2)
         {
-            printError(1, "Must provide a command after 'ram' command\n\teg. bundler ram <load|unload> <filePath>");
+            printError(1, "Must provide a command after 'ram' command\n\teg. bundle ram <load|unload> <filePath>");
         }
 
         const std::string ramCommand = argv[2];
         if (argc == 3 && ramCommand == "load")
         {
-            printError(1, "Must provide a file name after 'ram load' command\n\teg. bundler ram <load|unload> <filePath>");
+            printError(1, "Must provide a file name after 'ram load' command\n\teg. bundle ram <load|unload> <filePath>");
         }
 
         if (argc == 3 && ramCommand == "unload")
@@ -194,12 +186,6 @@ int main(int argc, const char *argv[])
             const std::string fileName = argv[3];
             ramManipulate(ramCommand, fileName);
         }
-        break;
-    }
-
-    // addons
-    case Command::COMMIT: {
-        gitCommit();
         break;
     }
 

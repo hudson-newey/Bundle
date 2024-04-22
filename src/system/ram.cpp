@@ -28,7 +28,7 @@ void loadPathToRam(std::string fileName) {
     }
 
     std::cout << fileName << " is now available under " << ramDiskPartition << "/" << fileName << "\n";
-    std::cout << "use 'bundler ram unload' to unload ramDisk" << "\n";
+    std::cout << "use 'bundle ram unload' to unload ramDisk" << "\n";
 }
 
 void unloadPathFromRam() {

@@ -1,5 +1,5 @@
-# Bundler Templates
+# Bundle Templates
 
-Use by using the command `bundler new <templateName>`
+Use by using the command `bundle new <templateName>`
 
 Add these to `./local/templates/`

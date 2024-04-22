@@ -1,14 +1,6 @@
-# Bundler
+# Bundle
 
 A program to easily run, and distribute projects / templates
-
-To fix name conflicts with ruby's [bundler](https://bundler.io), I suggest that you alias the hudson-newey/Bundler executable to `b`.
-
-eg. Add the following line to your `~/.bashrc` or `~/.zshrc`
-
-```sh
-alias b=~/.local/bin/hudson-newey/Bundler/build/bundler;
-```
 
 To build from source, see [building.md](BUILDING.md)
 
@@ -16,64 +8,64 @@ To build from source, see [building.md](BUILDING.md)
 
 Alternatives / Shorthands are listed as sub items
 
-- `bundler run`
-  - `bundler r <templateName>`
-  - `bundler r` (defaults to current directory bundle.yaml file)
-  - `bundler` (defaults to current directory bundle.yaml file)
-- `bundler list`
-  - `bundler ls`
-  - `bundler l`
-- `bundler view <manifestName>`
-  - `bundler v`
-- `bundler install`
-  - `bundler i`
-- `bundler check`
-  - `bundler c`
-- `bundler new <templateName>`
-  - `bundler n`
-  - `bundler init` (same as `bundler new init`)
-- `bundler ram <load|unload> <filePath>`
-- `bundler commit`
+- `bundle run`
+  - `bundle r <templateName>`
+  - `bundle r` (defaults to current directory bundle.yaml file)
+  - `bundle` (defaults to current directory bundle.yaml file)
+- `bundle list`
+  - `bundle ls`
+  - `bundle l`
+- `bundle view <manifestName>`
+  - `bundle v`
+- `bundle install`
+  - `bundle i`
+- `bundle check`
+  - `bundle c`
+- `bundle new <templateName>`
+  - `bundle n`
+  - `bundle init` (same as `bundle new init`)
+- `bundle ram <load|unload> <filePath>`
+- `bundle commit`
 
-### bundler run / bundler
+### bundle run / bundle
 
-Bundler run will run your projects "scripts", as specified within your bundle.yaml file
+Bundle run will run your projects "scripts", as specified within your bundle.yaml file
 
-### bundler list
+### bundle list
 
-Lists out all avaliable manifests and templates that can be used with `bundler new` and `bundler run`
+Lists out all avaliable manifests and templates that can be used with `bundle new` and `bundle run`
 
-### bundler view
+### bundle view
 
 Prints the contents of a manifest file (a .yaml file located in the `~/.local/templates/` directory)
 
-### bundler install
+### bundle install
 
 Runs install scripts in bundle
 
-### bundler check
+### bundle check
 
 Checks that system dependencies are satisfied
 
-### bundler new
+### bundle new
 
 Copies a template from _~./local/templates/templateName/_
 
-### bundler ram load
+### bundle ram load
 
 Loads a file directory into RAM-disk for sub-millisecond read/write
 
 ## Example Addons
 
-### bundler commit
+### bundle commit
 
-A sample Bundler addon for `git`. This will add, commit and push your HEAD branch to origin.
+A sample bundle addon for `git`. This will add, commit and push your HEAD branch to origin.
 
 ---
 
 **Footer Notes:**
 
-I will only increment the bundler version when there is a breaking change to the bundle.yaml.
+I will only increment the bundle version when there is a breaking change to the bundle.yaml.
 
 This includes:
 
@@ -85,4 +77,4 @@ This does **not** include:
 
 - Bug fixes
 - Changes to compiler support
-- Additional features to the bundler cli
+- Additional features to the bundle cli
