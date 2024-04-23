@@ -10,6 +10,7 @@
 #include "run/listScripts.cpp"
 #include "run/viewScript.cpp"
 #include "new/new.cpp"
+#include "save/save.cpp"
 #include "init/main.cpp"
 #include "system/ram.cpp"
 #include "dependencies/verifyDependencies.cpp"
@@ -25,6 +26,7 @@ enum class Command
     RAM,
     LIST,
     VIEW,
+    SAVE,
 
     // flags
     HELP,
@@ -55,6 +57,9 @@ int main(int argc, const char *argv[])
         {"list", Command::LIST},
         {"ls", Command::LIST},
         {"l", Command::LIST},
+
+        {"save", Command::SAVE},
+        {"s", Command::SAVE},
 
         {"view", Command::VIEW},
         {"v", Command::VIEW},
@@ -165,16 +170,36 @@ int main(int argc, const char *argv[])
         break;
     }
 
+    case Command::SAVE: {
+        if (argc <= 2)
+        {
+            printError(1, "Must provide a path after 'save' command\n\teg. bundle save <path> [template-name]");
+        }
+
+        const std::string templatePath = argv[2];
+
+        if (argc <= 3)
+        {
+            saveTemplate(templatePath, templatePath);
+            break;
+        }
+
+        const std::string templateName = argv[3];
+
+        saveTemplate(templatePath, templateName);
+        break;
+    }
+
     case Command::RAM: {
         if (argc == 2)
         {
-            printError(1, "Must provide a command after 'ram' command\n\teg. bundle ram <load|unload> <filePath>");
+            printError(1, "Must provide a command after 'ram' command\n\teg. bundle ram <load|unload> <file-path>");
         }
 
         const std::string ramCommand = argv[2];
         if (argc == 3 && ramCommand == "load")
         {
-            printError(1, "Must provide a file name after 'ram load' command\n\teg. bundle ram <load|unload> <filePath>");
+            printError(1, "Must provide a file name after 'ram load' command\n\teg. bundle ram <load|unload> <file-path>");
         }
 
         if (argc == 3 && ramCommand == "unload")

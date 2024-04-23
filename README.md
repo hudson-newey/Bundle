@@ -9,22 +9,24 @@ To build from source, see [building.md](BUILDING.md)
 Alternatives / Shorthands are listed as sub items
 
 - `bundle run`
-  - `bundle r <templateName>`
+  - `bundle r <template-name>`
   - `bundle r` (defaults to current directory bundle.yaml file)
   - `bundle` (defaults to current directory bundle.yaml file)
 - `bundle list`
   - `bundle ls`
   - `bundle l`
-- `bundle view <manifestName>`
+- `bundle view <manifest-name>`
   - `bundle v`
 - `bundle install`
   - `bundle i`
 - `bundle check`
   - `bundle c`
-- `bundle new <templateName>`
+- `bundle new <template-name>`
   - `bundle n`
   - `bundle init` (same as `bundle new init`)
-- `bundle ram <load|unload> <filePath>`
+- `bundle save <path> [template-name]`
+  - `bundle s`
+- `bundle ram <load|unload> <file-path>`
 - `bundle commit`
 
 ### bundle run / bundle
@@ -49,32 +51,12 @@ Checks that system dependencies are satisfied
 
 ### bundle new
 
-Copies a template from _~./local/templates/templateName/_
+Copies a template from _~./local/templates/template-name/_
+
+### bundle save
+
+Saves a directory of file as a template or manifest to be used with `bundle new` or `bundle run`
 
 ### bundle ram load
 
 Loads a file directory into RAM-disk for sub-millisecond read/write
-
-## Example Addons
-
-### bundle commit
-
-A sample bundle addon for `git`. This will add, commit and push your HEAD branch to origin.
-
----
-
-**Footer Notes:**
-
-I will only increment the bundle version when there is a breaking change to the bundle.yaml.
-
-This includes:
-
-- Additional features to the bundle.yaml spec
-- Renaming of bundle.yaml keys
-- Removal of bundle.yaml keys
-
-This does **not** include:
-
-- Bug fixes
-- Changes to compiler support
-- Additional features to the bundle cli
