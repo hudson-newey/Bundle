@@ -11,6 +11,7 @@
 #include "run/viewScript.cpp"
 #include "new/new.cpp"
 #include "save/save.cpp"
+#include "delete/delete.cpp"
 #include "init/main.cpp"
 #include "system/ram.cpp"
 #include "dependencies/verifyDependencies.cpp"
@@ -27,6 +28,7 @@ enum class Command
     LIST,
     VIEW,
     SAVE,
+    DELETE,
 
     // flags
     HELP,
@@ -45,14 +47,16 @@ int main(int argc, const char *argv[])
     std::map<std::string, Command> claMap = {
         {"run", Command::RUN},
         {"r", Command::RUN},
-        {"init", Command::INIT},
+
         {"check", Command::CHECK},
         {"c", Command::CHECK},
+
         {"install", Command::INSTALL},
         {"i", Command::INSTALL},
+
         {"new", Command::NEW},
         {"n", Command::NEW},
-        {"ram", Command::RAM},
+        {"init", Command::INIT},
 
         {"list", Command::LIST},
         {"ls", Command::LIST},
@@ -63,6 +67,12 @@ int main(int argc, const char *argv[])
 
         {"view", Command::VIEW},
         {"v", Command::VIEW},
+
+        {"delete", Command::DELETE},
+        {"del", Command::DELETE},
+        {"d", Command::DELETE},
+
+        {"ram", Command::RAM},
 
         // flags
         {"--help", Command::HELP},
@@ -187,6 +197,17 @@ int main(int argc, const char *argv[])
         const std::string templateName = argv[3];
 
         saveTemplate(templatePath, templateName);
+        break;
+    }
+
+    case Command::DELETE: {
+        if (argc <= 2)
+        {
+            printError(1, "Must provide a template name after 'delete' command\n\teg. bundle delete <template-name>");
+        }
+
+        const std::string templateName = argv[2];
+        deleteTemplate(templateName);
         break;
     }
 

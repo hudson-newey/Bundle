@@ -26,6 +26,9 @@ Alternatives / Shorthands are listed as sub items
   - `bundle init` (same as `bundle new init`)
 - `bundle save <path> [template-name]`
   - `bundle s`
+- `bundle delete <template-name>`
+  - `bundle del`
+  - `bundle d`
 - `bundle ram <load|unload> <file-path>`
 - `bundle commit`
 
@@ -56,6 +59,10 @@ Copies a template from _~./local/templates/template-name/_
 ### bundle save
 
 Saves a directory of file as a template or manifest to be used with `bundle new` or `bundle run`
+
+### bundle delete
+
+Deletes a template or manifest
 
 ### bundle ram load
 
