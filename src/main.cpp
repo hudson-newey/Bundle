@@ -6,6 +6,9 @@
 #include "bundleInfo.hpp"
 #include "util.cpp"
 #include "process/parse.cpp"
+#include "run/environment/manager.cpp"
+#include "run/environment/manifest.cpp"
+#include "run/environment/environment.cpp"
 #include "run/main.cpp"
 #include "run/listScripts.cpp"
 #include "run/viewScript.cpp"
@@ -29,6 +32,7 @@ enum class Command
     VIEW,
     SAVE,
     DELETE,
+    ENVIRONMENT,
 
     // flags
     HELP,
@@ -67,6 +71,9 @@ int main(int argc, const char *argv[])
 
         {"view", Command::VIEW},
         {"v", Command::VIEW},
+
+        {"env", Command::ENVIRONMENT},
+        {"e", Command::ENVIRONMENT},
 
         {"delete", Command::DELETE},
         {"del", Command::DELETE},
@@ -117,6 +124,45 @@ int main(int argc, const char *argv[])
         break;
     }
 
+    case Command::ENVIRONMENT: {
+        if (argc <= 2)
+        {
+            printError(1, "Must provide a command after 'env' command\n\teg. bundle env <load|unload> [manifest-name]");
+        }
+
+        const std::string environmentCommand = argv[2];
+
+        if (argc <= 3)
+        {
+            printError(1, "Must provide a manifest name after '" + environmentCommand + "'\n\teg. bundle env <load|unload> <manifest-name>");
+        }
+
+        const std::string manifestName = argv[3];
+        const std::string username = getlogin();
+        const auto templatePath = "/home/" + username + "/.local/templates/" + manifestName + ".yaml";
+
+        BUNDLE_FILE = templatePath;
+
+        if (environmentCommand == "load")
+        {
+            activateEnvironment(manifestName);
+        }
+        else if (environmentCommand == "unload")
+        {
+            deactivateEnvironment(manifestName);
+        }
+        else if (environmentCommand == "delete")
+        {
+            destroyManifestEnvironment(manifestName);
+        }
+        else
+        {
+            printError(1, "Unknown argument '" + environmentCommand + "'");
+        }
+
+        break;
+    }
+
     case Command::LIST: {
         listScripts();
         break;
@@ -125,7 +171,7 @@ int main(int argc, const char *argv[])
     case Command::VIEW: {
         if (argc <= 2)
         {
-            printError(1, "Must provide a manifest name after 'view' command\n\teg. bundle view <template-name>");
+            printError(1, "Must provide an argument name after 'env' command\n\teg. bundle view <template-name>");
         }
 
         const std::string manifestName = argv[2];

@@ -9,9 +9,10 @@ To build from source, see [building.md](BUILDING.md)
 Alternatives / Shorthands are listed as sub items
 
 - `bundle run`
-  - `bundle r <template-name>`
+  - `bundle r [template-name]`
   - `bundle r` (defaults to current directory bundle.yaml file)
   - `bundle` (defaults to current directory bundle.yaml file)
+- `bundle env <load|unload> [manifest-name]`
 - `bundle list`
   - `bundle ls`
   - `bundle l`
@@ -29,8 +30,7 @@ Alternatives / Shorthands are listed as sub items
 - `bundle delete <template-name>`
   - `bundle del`
   - `bundle d`
-- `bundle ram <load|unload> <file-path>`
-- `bundle commit`
+- `bundle ram <load|unload|delete> <file-path>`
 
 ### bundle run / bundle
 
@@ -50,7 +50,7 @@ Runs install scripts in bundle
 
 ### bundle check
 
-Checks that system dependencies are satisfied
+Checks that dependencies are satisfied in PATH
 
 ### bundle new
 

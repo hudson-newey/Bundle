@@ -16,18 +16,6 @@ std::vector<std::string> listPathFiles(std::string path)
     return result;
 }
 
-std::vector<std::string> split(const std::string &s, char delim) {
-    std::vector<std::string> result;
-    std::stringstream stream (s);
-    std::string item;
-
-    while (getline(stream, item, delim)) {
-        result.push_back(item);
-    }
-
-    return result;
-}
-
 void listScripts()
 {
     const std::string username = getlogin();
