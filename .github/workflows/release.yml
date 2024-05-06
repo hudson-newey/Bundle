@@ -24,8 +24,17 @@ jobs:
           cmake ..
           make
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+      - name: Tag commit
+        uses: tvdias/github-tagger@v0.0.1
         with:
-            files: |
-                build/bundle
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          tag: "${{ steps.date.outputs.date }}"
+
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/bundle"
+          tag: "${{ steps.date.outputs.date }}"
