@@ -9,6 +9,8 @@ jobs:
   Linux:
     name: Publish build on GitHub releases
     runs-on: ubuntu-latest
+    permissions:
+        contents: write
 
     steps:
       - name: Checkout
