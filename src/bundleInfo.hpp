@@ -8,3 +8,5 @@
 
 // Todo: This is a hack so that I can change the target bundle at runtime
 std::string BUNDLE_FILE = "bundle.yaml";
+
+std::string ramDiskPartition = "/mnt/ram";
