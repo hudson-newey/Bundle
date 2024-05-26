@@ -7,9 +7,12 @@
 class Template
 {
 public:
+    Template(std::vector<std::string> directories);
+    Template();
+
     std::vector<std::string> directories;
 
-    Template();
+    Template* addPath(std::string path);
 };
 
 #endif

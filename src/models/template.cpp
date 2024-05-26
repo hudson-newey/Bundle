@@ -5,7 +5,16 @@
 class Template
 {
 public:
-    Template();
+    Template(std::vector<std::string> directories)
+    {
+        this->directories = directories;
+    }
+
+    Template() {}
+
+    Template* addPath(std::string path) {
+        return this;
+    }
 
 private:
     std::vector<std::string> directories;

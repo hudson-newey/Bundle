@@ -4,23 +4,26 @@
 #include <cstdlib>
 #include <stdlib.h>
 
-void ramManipulate(std::string command, std::string fileName)
+namespace Ram
 {
-    if (!isSu())
+    void ramManipulate(std::string command, std::string fileName)
     {
-        printError(1, "You must be a super user to use this command.\nTry running again with sudo");
-    }
+        if (!isSu())
+        {
+            printError(1, "You must be a super user to use this command.\nTry running again with sudo");
+        }
 
-    if (command == "load")
-    {
-        loadPathToRam(fileName);
-    }
-    else if (command == "unload")
-    {
-        unloadPathFromRam();
-    }
-    else
-    {
-        printError(1, "Unknown ram operation '" + command + "'");
+        if (command == "load")
+        {
+            loadPathToRam(fileName);
+        }
+        else if (command == "unload")
+        {
+            unloadPathFromRam();
+        }
+        else
+        {
+            printError(1, "Unknown ram operation '" + command + "'");
+        }
     }
 }
