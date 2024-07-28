@@ -5,6 +5,7 @@
 #include "ramDisk.hpp"
 #include "util/terminal.hpp"
 
+#define LOADED_SUCCESS bool
 #define RAM_DISK_PARTITION "/mnt/ram";
 
 class RamDisk

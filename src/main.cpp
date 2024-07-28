@@ -4,21 +4,6 @@
 #include <map>
 
 #include "bundleInfo.hpp"
-#include "util.cpp"
-#include "process/parse.cpp"
-#include "run/environment/manager.cpp"
-#include "run/environment/manifest.cpp"
-#include "run/environment/environment.cpp"
-#include "run/main.cpp"
-#include "run/listScripts.cpp"
-#include "run/viewScript.cpp"
-#include "new/new.cpp"
-#include "save/save.cpp"
-#include "delete/delete.cpp"
-#include "init/main.cpp"
-#include "system/ram.cpp"
-#include "dependencies/verifyDependencies.cpp"
-#include "dependencies/installDependencies.cpp"
 
 enum class Command
 {
